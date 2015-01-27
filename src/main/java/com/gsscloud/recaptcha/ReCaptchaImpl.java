@@ -8,6 +8,7 @@ import org.apache.http.client.utils.URIBuilder;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
+import org.json.JSONArray;
 import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -91,7 +92,10 @@ public class ReCaptchaImpl implements ReCaptcha {
             HttpEntity entity = httpResponse.getEntity();
             if (entity != null){
                 JSONObject json = new JSONObject(EntityUtils.toString(entity,"UTF-8"));
-                return new ReCaptchaResponse(json.getBoolean("success"),json.has("error-codes") ? json.getString("error-codes") : null );
+                Boolean success = json.getBoolean("success");
+                JSONArray errorCodes = json.optJSONArray("error-codes");
+                String errorCode = (errorCodes != null && errorCodes.length() > 0) ? errorCodes.optString(0, null) : null;
+                return new ReCaptchaResponse(success, errorCode);
             }
         } catch (UnsupportedEncodingException e) {
             //bypass
