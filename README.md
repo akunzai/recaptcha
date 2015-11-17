@@ -2,8 +2,6 @@
 
 Google [reCAPTCHA](https://developers.google.com/recaptcha/) v2 SDK for Java
 
-
-
 ## Usage
 
 ### XML-based configuration
@@ -29,7 +27,7 @@ Google [reCAPTCHA](https://developers.google.com/recaptcha/) v2 SDK for Java
 
 ### Java-based configuration
 
-```java 
+```java
 import com.gsscloud.recaptcha.ReCaptcha
 import com.gsscloud.recaptcha.ReCaptchaImpl
 import org.springframework.beans.factory.annotation.Autowired
@@ -38,7 +36,7 @@ import org.springframework.core.env.Environment
 
 @Configuration
 class CaptchaConfiguration {
-        
+
         @Autowired
         private Environment env;
 
@@ -62,7 +60,3 @@ class CaptchaConfiguration {
 ReCaptchaResponse reCaptchaResponse = reCaptcha.verifyResponse(request.getParameter("g-recaptcha-response"), request.getRemoteAddr());
 Assert.assertTrue(reCaptchaResponse.isSuccess());
 ```
-
-## Build
-
-    gradlew clean build
