@@ -1,16 +1,12 @@
 apply plugin: 'java'
 
-sourceCompatibility=1.7
-targetCompatibility=1.7
-
 repositories {
-    mavenLocal()
     mavenCentral()
 }
 
 dependencies {
-    compile "org.slf4j:slf4j-api:1.7.9",
-            "org.apache.httpcomponents:httpclient:4.3.6",
-            "org.apache.commons:commons-lang3:3.3.2",
-            "org.json:json:20140107"
+    compile "org.slf4j:slf4j-api:1.7.13",
+            "org.apache.httpcomponents:httpclient:4.5.1",
+            "org.apache.commons:commons-lang3:3.4",
+            "org.json:json:20151123"
 }

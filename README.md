@@ -28,11 +28,11 @@ Google [reCAPTCHA](https://developers.google.com/recaptcha/) v2 SDK for Java
 ### Java-based configuration
 
 ```java
-import com.gsscloud.recaptcha.ReCaptcha
-import com.gsscloud.recaptcha.ReCaptchaImpl
-import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.context.annotation.*
-import org.springframework.core.env.Environment
+import com.gsscloud.recaptcha.ReCaptcha;
+import com.gsscloud.recaptcha.ReCaptchaImpl;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.*;
+import org.springframework.core.env.Environment;
 
 @Configuration
 class CaptchaConfiguration {
